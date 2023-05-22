@@ -9,7 +9,7 @@ The game features an interactive interface where players can solve the Tower of 
 The project involves creating an HTML structure to represent the game board and its components, applying CSS to style and enhance the visual appearance of the game, and implementing JavaScript code to manage the game state, handle user interactions, and enforce the rules of the Tower of Hanoi puzzle.`
 
 ### Functionalities
-`Step count`
- `Timer (If you are out of time, the game is stopped)`
- `Change the number of plates.`
-`- A large plate cannot be moved up to a small plate.`
+`Step count`<br>
+ `Timer (If you are out of time, the game is stopped)`<br>
+ `Change the number of plates.`<br>
+`- A large plate cannot be moved up to a small plate.`<br>
