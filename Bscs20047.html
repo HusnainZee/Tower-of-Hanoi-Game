@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel = "stylesheet" type = "text/css" href = "Bscs20047_Css.css"/>
+</head>
+
+
+
+<body onload = "Start();">
+
+    
+    <div class = "whiteBorderBackground">
+    
+        <div class = "h1">TOWER OF HANOI</div>
+
+        <!-- TIMER -->
+
+        <div class = "LeftTimerBox">
+            
+            <h2 style = "text-align: center; font-family: Arial, Helvetica, sans-serif; color: rgb(62, 62, 62);">TIMER</h2>
+            
+            <div class = "content">
+
+                <div class = "counter"></div>
+
+                <input type = "submit" id = "seconds" placeholder = "00 : 00" value = "00 : 00" style = "border: none; font-size: 30px; 
+                color: rgb(62, 62, 62); 
+                background-color: rgba(255, 255, 255, 0);
+                font-family: Arial, Helvetica, sans-serif; 
+                font-weight: bold; 
+                margin-left: 0px;
+                margin-top: -10px;">
+                
+                <!-- START, STOP, RESTART, CONTINUE BUTTONS -->
+            
+                <div class = "buttons">
+                    <button class = "PlayButton playbutton"  id = "start" value = "1" onclick="Play(this)">PLAY</button>
+                    <button class = "StopButton playbutton" id = "cont" value = "1" onclick="check(this)">RESUME</button>
+                    <button class = "StopButton playbutton" id = "stop" value = "0" onclick="check(this)">PAUSE</button>
+                    <button class = "RestartButton playbutton" id = "restart" value = "0" onclick="check(this)">RESTART</button>
+
+                </div>
+            </div> 
+        </div>
+
+        
+        <!-- MOVES -->
+
+        <div class = "RightMovesBox">
+
+            <h2 style = "text-align: center; font-family: Arial, Helvetica, sans-serif; color: rgb(62, 62, 62); margin-bottom: -15px;">MOVES</h2>
+
+            <!-- <h2 id = "Moves" style = "text-align: center; font-family: Arial, Helvetica, sans-serif; color: rgb(62, 62, 62);">0</h2> -->
+            <input type = "submit" id = "Moves" placeholder = "0" value = "0"  style = "border: none; font-size: 30px; 
+            color: rgb(62, 62, 62); 
+            background-color: rgba(255, 255, 255, 0);
+            font-family: Arial, Helvetica, sans-serif; 
+            font-weight: bold; 
+            margin-left: 0px;
+            margin-top: 10px;">
+
+        </div>
+
+        <!-- DISKS -->
+
+        <input type = "submit" id = "disknumber" value = "" 
+        style = "font-size: 20px; text-align: center; font-family: Arial, Helvetica, sans-serif; font-weight: bold; color: rgb(62, 62, 62);">
+      
+
+        <!-- UNDO, REDO, UP, DOWN BUTTONS -->
+
+        <!-- <button class = "button01 mybutton" id = "undo" onclick = "Undo()"></button> -->
+        
+        <button class = "button02 mybutton" id = "increasedisks" onclick = "IncreaseDisks()" ></button>
+        <button class = "button03 mybutton" id = "decreasedisks" onclick = "DecreaseDisks()" ></button>
+
+        <!-- <button class = "button04 mybutton" id = "redo" onclick = "Redo()"></button> -->
+    
+
+   
+        <!-- DABBAY -->
+
+        <div class = "dabba">
+           
+            <!-- LEFT -->
+            
+            <div class="dabbaa" id = "dabbaa1">
+
+                <div class = "disks"  id = "disk9" style = "width: 90px;  margin-left: 104px;"></div>
+                <div class = "disks"  id = "disk8" style = "width: 110px; margin-left: 96px;"></div>
+                <div class = "disks"  id = "disk7" style = "width: 130px; margin-left: 88px;"></div>
+                <div class = "disks"  id = "disk6" style = "width: 150px; margin-left: 80px;"></div>
+                <div class = "disks"  id = "disk5" style = "width: 170px; margin-left: 72px;"></div>
+                <div class = "disks"  id = "disk4" style = "width: 190px; margin-left: 64px;"></div>
+                <div class = "disks"  id = "disk3" style = "width: 210px; margin-left: 56px;"></div>
+                <div class = "disks"  id = "disk2" style = "width: 230px; margin-left: 48px;" ></div>
+                <div class = "disks"  id = "disk1" style = "width: 250px; margin-left: 40px;" ></div>
+                
+                <div class="blackbar"></div>
+            
+            </div>
+
+
+            <!-- MIDDLE -->
+
+            <div class="dabbaa"  id = "dabbaa2">
+                <div class="blackbar"></div>
+            </div>
+            
+            
+            
+            <!-- RIGHT -->
+
+
+            <div class="dabbaa"  id = "dabbaa3">
+                <div class="blackbar"></div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+    
+    
+ 
+
+
+    <!-- PAUSE PANEL -->
+    
+    <div id = "pausepanel" class = "PauseMenu">
+        <h2 style = "text-align: center; font-family: Arial, Helvetica, sans-serif; color: white; margin-top: 270px; font-size: 30px;">PAUSED..!!</h2>
+    </div>
+
+    <!-- TIME UP PANEL -->
+    
+    <div id = "timeuppanel" class = "PauseMenu">
+        <h2 style = "text-align: center; font-family: Arial, Helvetica, sans-serif; color: white; margin-top: 240px; font-size: 30px;">UNFORTUNATELY!</h2>
+        <h2 style = "text-align: center; font-family: Arial, Helvetica, sans-serif; color: white; margin-top: 10px; font-size: 30px;">TIME IS UP..!!</h2>
+        <h2 style = "text-align: center; font-family: Arial, Helvetica, sans-serif; color: white; margin-top: 10px; font-size: 30px;">GAME END...!!</h2>
+    </div>
+
+
+    <!-- WIN PANEL -->
+    <div id = "winpanel" class = "PauseMenu">
+        <h2 style = "text-align: center; font-family: Arial, Helvetica, sans-serif; color: white; margin-top: 270px; font-size: 30px;">YOU WIN..!!</h2>
+    </div>
+
+    <!-- JAVASCRIPT LINKED -->
+
+<script type = "text/javascript" src = "Js.js"></script>
+
+<!-- 
+    <script>
+
+    // function ChangeTextBoldItalic() 
+    // {
+    //     document.getElementById("input2").value = document.getElementById("input1").value;
+    //     input2.style.fontWeight = 'bold';
+    //     input2.style.fontStyle = 'italic';
+
+    // }
+
+    </script> -->
+
+</body>
+
+</html>
