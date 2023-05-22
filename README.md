@@ -1,3 +1,10 @@
+###
+
+<p align="center">
+  <img src="https://github.com/HusnainZee/Tower-of-Hanoi-Game/blob/main/Tower%20of%20Hanoi.png" alt="Tower Of Hanoi UI" /> 
+</p>
+
+
 # Tower-of-Hanoi-Game
 This project is implemented using HTML, CSS, and JavaScript, providing a basic understanding of Web Development and its concepts.
 
